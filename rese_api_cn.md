@@ -46,35 +46,55 @@ GET /api/v2/symbols
 base_currency |	String|	交易货币币种
 quote_currency	|String	|计价货币币种
 symbol	|String	|币对名称
+min_size	|String	|最小交易金额
+size_increment	|String	|	交易货币数量精度
+tick_size	|String	|	交易货币价格精度
 #### 返回示例
 ```
 [
-    {
-        "base_currency": "aac",
-        "quote_currency": "btc",
-        "symbol": "aac_btc"
+  {
+        "base_currency":"eth",
+        "quote_currency":"usdt",
+        "symbol":"eth_usdt",
+        "min_size":"5.0000000000",
+        "size_increment":"0.0001",
+        "tick_size":"0.00000001"
     },
     {
-        "base_currency": "abtc",
-        "quote_currency": "btc",
-        "symbol": "abtc_btc"
+        "base_currency":"btc",
+        "quote_currency":"usdt",
+        "symbol":"btc_usdt",
+        "min_size":"5.0000000000",
+        "size_increment":"0.0001",
+        "tick_size":"0.00000001"
     },
     {
-        "base_currency": "act",
-        "quote_currency": "btc",
-        "symbol": "act_btc"
+        "base_currency":"eth",
+        "quote_currency":"btc",
+        "symbol":"eth_btc",
+        "min_size":"0.0010000000",
+        "size_increment":"0.0001",
+        "tick_size":"0.00000001"
     },
-       {
-        "base_currency": "btp",
-        "quote_currency": "btc",
-        "symbol": "btp_btc"
-    },
-    {
-        "base_currency": "bts",
-        "quote_currency": "btc",
-        "symbol": "bts_btc"
+     {
+        "base_currency":"xrp",
+        "quote_currency":"btc",
+        "symbol":"xrp_btc",
+        "min_size":"0.0010000000",
+        "size_increment":"0.0001",
+        "tick_size":"0.0000000001"
     }
 ]
+```
+#### 解释说明
+```
+
+min_size指下单金额的最小值（例如5 USDT 或者 0.001BTC）。size_increment(交易数量步长)是指下单数量的最小
+增量。例如，当size_increment为0.000001，委托数量传入0.0000126将被系统按截尾法修正为
+0.000012。
+
+tick_size(价格步长)是指下单价格的最小增量，委托价格必须是tick_size的倍数。例如，当
+tick_size为0.0001，委托价格传入0.02237将被系统按截尾法修正为0.0223。
 ```
 
 ### 2.获取全部ticker信息 
