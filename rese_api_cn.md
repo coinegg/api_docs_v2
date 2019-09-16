@@ -1,7 +1,7 @@
 # REST行情与交易接口 V2
 
 ## 基本信息
-* **请求域名** [https://api.coinegg.im](https://api.coinegg.im)
+* **请求域名** [https://api.coinegg.vip](https://api.coinegg.vip)
 * **请求过程说明**
 	* 构造请求数据，用户数据按照COINEGG提供的接口规则，通过程序生成签名和要传输给CoinEgg的数据集合；
 	* 发送请求数据，把构造完成的数据集合通过POST/GET提交的方式传递给CoinEgg；
